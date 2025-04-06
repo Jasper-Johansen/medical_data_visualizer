@@ -65,3 +65,36 @@ This function generates a heatmap to visualize correlations between the features
 - **Parameters**: None
 - **Returns**: Matplotlib figure object (`fig`), saved as 'heatmap.png'.
 
+## Results
+### Categorical Plot
+
+From the categorical plot comparing health indicators with the presence (`cardio = 1`) or absence (`cardio = 0`) of cardiovascular disease, we can infer the following:
+
+- **Overweight:** There is a strong positive association between being overweight and cardiovascular disease. A significantly higher number of individuals with `cardio = 1` are overweight (`value = 1`) compared to those with `cardio = 0`.
+
+- **Cholesterol:** Individuals with cardiovascular disease show a higher frequency of elevated cholesterol levels (`value = 1`), indicating that high cholesterol is a contributing factor or marker.
+
+- **Glucose:** A higher number of people with `cardio = 1` also have elevated glucose levels (`value = 1`), though the difference is less pronounced than cholesterol or overweight.
+
+- **Activity:** Fewer individuals with `cardio = 1` are physically active (`active = 1`) compared to those without the disease, suggesting inactivity may be a risk factor.
+
+- **Alcohol Consumption:** People without cardiovascular disease (`cardio = 0`) show a slightly higher alcohol usage. This may indicate a weak or inverse correlation, but not a strong or clear trend.
+
+- **Smoking:** Smoking levels appear similar between both groups, indicating no strong correlation with the cardiovascular condition based on this data.
+
+### Correlation Analysis
+
+A heatmap of Pearson correlation coefficients was generated to assess linear relationships among variables. The key takeaways are:
+
+- No feature has a strong correlation (≥ 0.5) with the target variable `cardio`.
+- Mild positive correlations were observed between `cardio` and the following variables:
+  - `ap_lo` (diastolic BP): 0.3
+  - `ap_hi` (systolic BP): 0.2
+  - `cholesterol`: 0.2
+  - `age`: 0.2
+  - `glucose`: 0.1
+  - `overweight`: 0.1
+
+- The most notable correlation in the entire heatmap is between `weight` and `overweight` (0.7), which is intuitive.
+
+These results suggest that **no single feature strongly predicts cardiovascular disease**, emphasizing the **multifactorial** nature of heart-related conditions. A model would likely need to consider combinations of features for better prediction.
